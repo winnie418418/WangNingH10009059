@@ -1,0 +1,285 @@
+body {
+  font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background-color: #0f1730; /* 統一深藍主題背景 */
+  color: #e6e6e6;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 統一主內容容器 */
+.content-card {
+  background: rgba(25, 35, 65, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 60px 40px;
+  border-radius: 30px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 165, 0, 0.15);
+}
+
+/* 統一頁面主標題（橙色漸變） */
+.page-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 50px;
+  background: linear-gradient(135deg, #ff9f00, #ff6b00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* 統一主內容區域 */
+.portfolio-container, .about-container, .harvest-container, .journey-container {
+  min-height: 85vh;
+  padding: 40px 15px;
+  position: relative;
+}
+
+/* 折疊按鈕容器（匹配「獲獎經歷」等按鈕樣式） */
+.harvest-item, .journey-item, .collapse-item {
+  background: linear-gradient(135deg, #1a2345, #2b3663);
+  border-radius: 20px; /* 圓角匹配圖中設計 */
+  overflow: hidden;
+  margin-bottom: 16px; /* 按鈕之間的垂直間距，可按需調整 */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255, 159, 0, 0.2);
+}
+
+/* 折疊標題欄（點擊展開的按鈕，1:1復刻圖中樣式） */
+.harvest-header, .journey-header, .collapse-header {
+  padding: 20px 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #ff9f00; /* 橙色文字，匹配圖中設計 */
+  transition: background 0.3s ease;
+}
+
+/* 懸浮效果（增強交互，不改變主風格） */
+.harvest-header:hover, .journey-header:hover, .collapse-header:hover {
+  background: rgba(255, 159, 0, 0.1);
+}
+
+/* 折疊箭頭樣式（匹配圖中右側下拉箭頭） */
+.harvest-header::after, .journey-header::after, .collapse-header::after {
+  content: "▼";
+  font-size: 1.2rem;
+  color: #ff9f00;
+  transition: transform 0.3s ease;
+}
+
+/* 展開時箭頭旋轉（配合Bootstrap折疊動畫） */
+.harvest-header[aria-expanded="true"]::after,
+.journey-header[aria-expanded="true"]::after,
+.collapse-header[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+/* 折疊內容區域 */
+.harvest-body, .journey-body, .collapse-body {
+  padding: 0 30px 25px;
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #e6e6e6;
+}
+
+
+/* ==============================================
+   4. 視頻卡片樣式（舞蹈作品集頁面，風格統一）
+   ============================================== */
+.video-section {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: #ff9f00;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 159, 0, 0.3);
+}
+
+.video-card {
+  background: linear-gradient(135deg, #1a2345, #2b3663);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  margin-bottom: 25px;
+  border: 1px solid rgba(255, 159, 0, 0.2);
+}
+
+.video-placeholder {
+  background: #121830;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.video-placeholder:hover {
+  background: #161d40;
+  transform: translateY(-5px);
+}
+
+.video-placeholder橫版 {
+  height: 280px;
+}
+
+.video-icon {
+  font-size: 4rem;
+  color: rgba(255, 159, 0, 0.7);
+  margin-bottom: 15px;
+}
+
+.video-desc {
+  padding: 20px;
+  text-align: center;
+}
+
+.video-title {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.video-subtitle {
+  font-size: 1rem;
+  color: #ffcc80;
+}
+
+.bilibili-link {
+  color: #ff9f00;
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 8px;
+  transition: color 0.3s ease;
+}
+
+.bilibili-link:hover {
+  color: #ff6b00;
+}
+
+/* ==============================================
+   5. 首頁按鈕樣式（風格統一）
+   ============================================== */
+.art-btn {
+  padding: 24px 40px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 20px;
+  border: none;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  background: linear-gradient(135deg, #1a2345, #2b3663);
+  border: 1px solid rgba(255, 159, 0, 0.2);
+}
+
+.art-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+  color: #ffcc80;
+  letter-spacing: 1px;
+}
+
+/* ==============================================
+   6. 頁腳樣式（全站統一）
+   ============================================== */
+footer {
+  background-color: #212529;
+  color: #ffffff;
+  padding: 25px 0;
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ==============================================
+   7. 響應式適配（全站統一）
+   ============================================== */
+@media (max-width: 768px) {
+  .content-card {
+    padding: 40px 20px;
+  }
+  .page-title {
+    font-size: 2.5rem;
+  }
+  .section-title {
+    font-size: 1.5rem;
+  }
+  .video-placeholder {
+    height: 280px;
+  }
+  .video-placeholder橫版 {
+    height: 200px;
+  }
+  .video-icon {
+    font-size: 3rem;
+  }
+  .harvest-header, .journey-header, .collapse-header {
+    padding: 18px 20px;
+    font-size: 1.2rem;
+  }
+  .harvest-body, .journey-body, .collapse-body {
+    padding: 0 20px 20px;
+  }
+  .art-btn, .journey-btn {
+    padding: 20px 30px;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .art-btn, .journey-btn {
+    padding: 16px 24px;
+    font-size: 1.2rem;
+  }
+  .page-title {
+    font-size: 2rem;
+  }
+}
+/* 优化头像样式：左侧长条适配 */
+.avatar-img {
+    transition: transform 0.3s ease;
+}
+.avatar-img:hover {
+    transform: scale(1.02);
+}
+
+/* 确保文字区不被挤压 */
+.intro-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #e6e6e6;
+}
+
+/* 响应式：手机端自动堆叠 */
+@media (max-width: 768px) {
+    .avatar-img {
+        min-height: 280px !important;
+        margin-bottom: 20px;
+    }
+}
